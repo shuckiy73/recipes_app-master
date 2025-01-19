@@ -1,4 +1,3 @@
-# api/urls.py
 from django.contrib import admin
 from django.urls import path, include        # add this
 from django.conf import settings             # add this
