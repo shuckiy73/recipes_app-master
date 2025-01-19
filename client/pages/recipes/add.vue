@@ -86,6 +86,7 @@ export default {
     };
   },
   methods: {
+    $axios: undefined,
     onFileChange(e) {
       let files = e.target.files || e.dataTransfer.files;
       if (!files.length) {
@@ -111,9 +112,12 @@ export default {
       for (let data in this.recipe) {
         formData.append(data, this.recipe[data]);
       }
+      this.$axios.$post = async function (s, formData, config) {
+
+      };
       try {
         let response = await this.$axios.$post("/recipes/", formData, config);
-        this.$router.push("/recipes/");
+        await this.$router.push("/recipes/");
       } catch (e) {
         console.log(e);
       }
